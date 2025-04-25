@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -12,45 +13,57 @@
   <div id="app" class="space-y-4">
     <!-- フォーム -->
     <div class="space-y-2">
-      <label>クエストレアリティ:
-        <select id="rarity" class="border p-1">
-          <option value="C">C</option>
-          <option value="U">U</option>
-          <option value="R">R</option>
-          <option value="E">E</option>
-          <option value="L">L</option>
-        </select>
-      </label>
-      <label>到達ステージ:
-        <select id="stage" class="border p-1">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-      </label>
-      <label>スタミナ:
-        <input id="stamina" type="number" class="border p-1 w-20" placeholder="例:1000" />
-      </label>
-      <label>EXレベル合計:
-        <input id="exSum" type="number" class="border p-1 w-20" placeholder="未入力→0" />
-      </label>
-      <label>スタミナ割引:
-        <select id="discount" class="border p-1">
-          <option value="0">0%</option>
-          <option value="10">10%</option>
-          <option value="20">20%</option>
-          <option value="30">30%</option>
-          <option value="40">40%</option>
-          <option value="50">50%</option>
-        </select>
-      </label>
+      <!-- クエストレアリティ -->
+      <div>
+        <span class="font-semibold">クエストレアリティ:</span>
+        <div class="flex space-x-4 mt-1">
+          <label><input type="radio" name="rarity" value="C" checked /> C</label>
+          <label><input type="radio" name="rarity" value="U" /> U</label>
+          <label><input type="radio" name="rarity" value="R" /> R</label>
+          <label><input type="radio" name="rarity" value="E" /> E</label>
+          <label><input type="radio" name="rarity" value="L" /> L</label>
+        </div>
+      </div>
+      <!-- 到達ステージ -->
+      <div>
+        <span class="font-semibold">到達ステージ:</span>
+        <div class="flex space-x-4 mt-1">
+          <label><input type="radio" name="stage" value="1" checked /> 1</label>
+          <label><input type="radio" name="stage" value="2" /> 2</label>
+          <label><input type="radio" name="stage" value="3" /> 3</label>
+          <label><input type="radio" name="stage" value="4" /> 4</label>
+          <label><input type="radio" name="stage" value="5" /> 5</label>
+        </div>
+      </div>
+      <!-- その他入力 -->
+      <div class="flex flex-wrap gap-4">
+        <label class="flex items-center">
+          <span class="mr-2">スタミナ:</span>
+          <input id="stamina" type="number" class="border p-1 w-20" placeholder="1000" />
+        </label>
+        <label class="flex items-center">
+          <span class="mr-2">EXレベル合計:</span>
+          <input id="exSum" type="number" class="border p-1 w-20" placeholder="0" />
+        </label>
+        <label class="flex items-center">
+          <span class="mr-2">スタミナ割引:</span>
+          <select id="discount" class="border p-1">
+            <option value="0">0%</option>
+            <option value="10">10%</option>
+            <option value="20">20%</option>
+            <option value="30">30%</option>
+            <option value="40">40%</option>
+            <option value="50">50%</option>
+          </select>
+        </label>
+      </div>
       <button id="calcBtn" class="bg-blue-500 text-white px-4 py-1 rounded">計算する</button>
     </div>
+
     <!-- 結果表示 -->
-    <div id="result" class="space-y-1"></div>
+    <div id="result" class="space-y-1 text-lg font-medium"></div>
   </div>
+
   <!-- スクリプト読み込み -->
   <script src="./static/js/script.js"></script>
 </body>
