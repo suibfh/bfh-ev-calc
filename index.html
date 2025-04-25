@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BFH EV Calculator</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-4">
+  <h1 class="text-xl font-bold mb-4">BFH 期待値計算ツール</h1>
+  <div id="app" class="space-y-4">
+    <!-- フォーム -->
+    <div class="space-y-2">
+      <label>クエストレアリティ:
+        <select id="rarity" class="border p-1">
+          <option value="C">C</option>
+          <option value="U">U</option>
+          <option value="R">R</option>
+          <option value="E">E</option>
+          <option value="L">L</option>
+        </select>
+      </label>
+      <label>到達ステージ:
+        <select id="stage" class="border p-1">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </label>
+      <label>スタミナ:
+        <input id="stamina" type="number" class="border p-1 w-20" placeholder="例:1000" />
+      </label>
+      <label>EXレベル合計:
+        <input id="exSum" type="number" class="border p-1 w-20" placeholder="未入力→0" />
+      </label>
+      <label>スタミナ割引:
+        <select id="discount" class="border p-1">
+          <option value="0">0%</option>
+          <option value="10">10%</option>
+          <option value="20">20%</option>
+          <option value="30">30%</option>
+          <option value="40">40%</option>
+          <option value="50">50%</option>
+        </select>
+      </label>
+      <button id="calcBtn" class="bg-blue-500 text-white px-4 py-1 rounded">計算する</button>
+    </div>
+    <!-- 結果表示 -->
+    <div id="result" class="space-y-1"></div>
+  </div>
+  <!-- スクリプト読み込み -->
+  <script src="./static/js/script.js"></script>
+</body>
+</html>
