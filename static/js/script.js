@@ -1,3 +1,5 @@
+// static/js/script.js
+
 // 計算用データ定義
 const baseStaminaCost = { C:10, U:20, R:30, E:40, L:50 };
 const coinTable = {
@@ -29,19 +31,28 @@ function calcExpected({ rarity, stage, stamina, exSum=0, discount=0 }) {
 
 // イベントバインド
 document.getElementById('calcBtn').addEventListener('click', () => {
-  const r = document.getElementById('rarity').value;
-  const s = Number(document.getElementById('stage').value);
+  const r = document.querySelector('input[name="rarity"]:checked').value;
+  const s = Number(document.querySelector('input[name="stage"]:checked').value);
   const st = Number(document.getElementById('stamina').value);
   const ex = Number(document.getElementById('exSum').value) || 0;
   const d = Number(document.getElementById('discount').value);
-  if (st <= 0) { alert('スタミナは1以上を入力してください'); return; }
+
+  if (!st || st <= 0) {
+    alert('スタミナは1以上の数字を入力してください');
+    return;
+  }
+
   const { runs, totalCoins, expectedItems } = calcExpected({
-    rarity: r, stage: s, stamina: st, exSum: ex, discount: d
+    rarity: r,
+    stage: s,
+    stamina: st,
+    exSum: ex,
+    discount: d
   });
-  const out = `
+
+  document.getElementById('result').innerHTML = `
     <p>▶️ 周回可能数: ${runs} 回</p>
     <p>▶️ 獲得ガチャコイン合計: ${totalCoins} 枚</p>
     <p>▶️ 聖偽物 期待値: ${expectedItems} 個</p>
   `;
-  document.getElementById('result').innerHTML = out;
 });
